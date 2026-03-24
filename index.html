@@ -3,55 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MicroUp Studies | ابتكار بلا حدود</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <title>MicroUp Studios | الريادة في صناعة التقنية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #00d2ff; --bg: #0a0a0b; --card-bg: #161618; --text: #ffffff; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Cairo', sans-serif; margin: 0; padding: 0; line-height: 1.6; }
-        header { padding: 20px; text-align: center; border-bottom: 1px solid #333; }
-        .hero { padding: 60px 20px; text-align: center; background: linear-gradient(180deg, #0a0a0b 0%, #1a1a1d 100%); }
-        .hero h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 10px; }
-        .hero p { font-size: 1.1rem; color: #ccc; }
-        .container { padding: 40px 20px; max-width: 1000px; margin: auto; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: var(--card-bg); padding: 25px; border-radius: 15px; border: 1px solid #333; transition: 0.3s; }
-        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .card h3 { color: var(--primary); margin-top: 0; }
-        .footer { text-align: center; padding: 40px; border-top: 1px solid #333; font-size: 0.9rem; color: #777; }
-        .btn { display: inline-block; background: var(--primary); color: #000; padding: 10px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 20px; }
+        :root { --primary: #00d2ff; --secondary: #0055ff; --bg: #050505; --card: #121214; --text: #e0e0e0; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Cairo', sans-serif; margin: 0; scroll-behavior: smooth; }
+        
+        /* Header */
+        header { padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #222; }
+        .logo { font-weight: 800; font-size: 1.5rem; color: var(--primary); text-decoration: none; }
+
+        /* Hero Section */
+        .hero { padding: 100px 20px; text-align: center; background: radial-gradient(circle at center, #1a1a2e 0%, #050505 100%); }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; background: linear-gradient(90deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; color: #aaa; }
+
+        /* Projects Section */
+        .section-title { text-align: center; margin: 50px 0; font-size: 2rem; color: var(--primary); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 0 5%; }
+        .card { background: var(--card); border-radius: 20px; padding: 30px; border: 1px solid #222; transition: 0.4s; position: relative; overflow: hidden; }
+        .card:hover { border-color: var(--primary); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,210,255,0.1); }
+        .card h3 { margin-top: 0; color: #fff; }
+        .card p { font-size: 0.95rem; color: #999; }
+        
+        /* Links & Buttons */
+        .links-container { margin-top: 20px; }
+        .btn { display: inline-block; padding: 10px 20px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .btn-primary { background: var(--primary); color: #000; margin-left: 10px; }
+        .btn-outline { border: 1px solid var(--primary); color: var(--primary); }
+        .btn:hover { opacity: 0.8; }
+
+        footer { text-align: center; padding: 50px; border-top: 1px solid #222; margin-top: 50px; color: #666; }
     </style>
 </head>
 <body>
 
 <header>
-    <h2>MicroUp <span style="color:var(--primary)">Studies</span></h2>
+    <a href="#" class="logo">MicroUp Studios</a>
 </header>
 
 <section class="hero">
-    <h1>مستقبل التقنية بين يديك</h1>
-    <p>مختبر ابتكار متخصص في التطبيقات، الألعاب، والحوسبة الفيزيائية.</p>
-    <a href="#" class="btn">استكشف أعمالنا</a>
+    <h1>نبتكر للمستقبل</h1>
+    <p>في MicroUp Studios، نحوّل الأفكار المعقدة إلى تجارب رقمية مذهلة. متخصصون في تطوير الألعاب، تطبيقات الهواتف الذكية، ونشر المعرفة التقنية.</p>
+    <a href="https://play.google.com/store/apps/dev?id=4943719416556531980" class="btn btn-primary">متجر التطبيقات</a>
 </section>
 
 <div class="container">
+    <h2 class="section-title">مشاريعنا الرائدة</h2>
     <div class="grid">
         <div class="card">
-            <h3>📱 تطبيقات الذكاء</h3>
-            <p>نطور تطبيقات مبتكرة مثل "ظلال السماء" تجمع بين سهولة الاستخدام وقوة الأداء.</p>
+            <h3>🎮 Micro Crush</h3>
+            <p>تجربة فريدة في عالم ألعاب الـ Match-3. تم تصميمها بأحدث المحركات لتقديم رسوميات جذابة وأسلوب لعب ممتع ومبتكر.</p>
+            <div class="links-container">
+                <a href="#" class="btn btn-outline">قريباً على المتجر</a>
+            </div>
         </div>
+
         <div class="card">
-            <h3>🎮 تطوير الألعاب</h3>
-            <p>نبدع في عالم الألعاب، وعلى رأسها لعبتنا "Micro Crush" بتجربة فريدة.</p>
+            <h3>📖 ظلال السماء</h3>
+            <p>تطبيق روائي مبتكر يدمج بين السرد القصصي والتفاعل الرقمي، نهدف من خلاله إلى إعادة تعريف تجربة القراءة عبر الهاتف.</p>
+            <div class="links-container">
+                <a href="#" class="btn btn-outline">تحت التطوير</a>
+            </div>
         </div>
+
         <div class="card">
-            <h3>⚙️ الحوسبة الفيزيائية</h3>
-            <p>قريباً: دمج البرمجيات بالواقع من خلال مشروعات الحوسبة الفيزيائية والـ IoT.</p>
+            <h3>🎥 صانع التقنية</h3>
+            <p>قناتنا التعليمية على يوتيوب. نشارككم فيها رحلتنا في البرمجة وتطوير الألعاب، ونقدم شروحات تقنية مبسطة للجميع.</p>
+            <div class="links-container">
+                <a href="https://www.youtube.com/@TechnologyMaker" class="btn btn-primary">اشترك الآن</a>
+            </div>
         </div>
     </div>
 </div>
 
-<footer class="footer">
-    <p>قناة "صانع التقنية" | جميع الحقوق محفوظة لشركة MicroUp Studies &copy; 2026</p>
+<footer>
+    <p>تطوير: أحمد - مؤسس MicroUp Studios</p>
+    <p>جميع الحقوق محفوظة &copy; 2026</p>
 </footer>
 
 </body>
