@@ -3,134 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ناريمان | NARIMAN - سلفيت، فلسطين</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <title>MicroUp Studios | القمة في تطوير الألعاب والتطبيقات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --nr-pink: #fdf2f2;
-            --nr-gold: #c5a059;
-            --nr-dark: #1a1a1a;
-            --nr-text: #444;
-            --white: #ffffff;
+            --bg-dark: #0b0b0d;
+            --card-bg: #18181c;
+            --accent-blue: #0078f2;
+            --accent-purple: #8e44ad;
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
+            --border: #2a2a2a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
-        body { background-color: var(--nr-pink); color: var(--nr-text); overflow-x: hidden; }
+        body { background-color: var(--bg-dark); color: var(--text-main); overflow-x: hidden; line-height: 1.6; }
 
+        /* --- Header --- */
         header {
-            height: 80px; background: rgba(255,255,255,0.9);
+            height: 80px; background: rgba(18, 18, 18, 0.95);
             display: flex; justify-content: space-between; align-items: center;
-            padding: 0 8%; position: fixed; width: 100%; top: 0; z-index: 1000;
-            backdrop-filter: blur(10px); border-bottom: 1px solid #eee;
+            padding: 0 5%; position: fixed; width: 100%; top: 0; z-index: 1000;
+            border-bottom: 1px solid var(--border); backdrop-filter: blur(10px);
         }
+        .logo { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 1.6rem; letter-spacing: 2px; }
+        .logo span { color: var(--accent-blue); }
+        nav a { margin-right: 25px; text-decoration: none; color: var(--text-dim); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
+        nav a:hover { color: var(--text-main); }
+        .btn-contact { background: var(--accent-blue); color: white; padding: 10px 25px; border-radius: 4px; text-decoration: none; font-weight: 900; font-size: 0.8rem; }
 
-        .logo { font-weight: 900; font-size: 1.8rem; color: var(--nr-dark); }
-        .logo span { color: var(--nr-gold); font-family: serif; font-style: italic; }
-
-        nav a { margin-right: 25px; text-decoration: none; color: var(--nr-dark); font-weight: 700; font-size: 0.9rem; }
-        .btn-reserve { background: var(--nr-dark); color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-size: 0.8rem; }
-
+        /* --- Hero Section --- */
         .hero {
-            height: 80vh; margin-top: 80px;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=2000');
+            height: 70vh; margin-top: 80px;
+            background: linear-gradient(rgba(0,0,0,0.6), var(--bg-dark)), url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2000&auto=format&fit=crop');
             background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; color: white;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
+        .hero h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 900; margin-bottom: 10px; }
+        .hero p { color: var(--accent-blue); font-weight: 700; font-size: 1.2rem; letter-spacing: 3px; margin-bottom: 30px; }
 
-        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; text-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-        .hero p { font-size: 1.2rem; margin: 20px 0 40px; font-weight: 300; }
+        /* --- Section Styling --- */
+        section { padding: 80px 5%; max-width: 1400px; margin: 0 auto; }
+        .section-header { margin-bottom: 40px; border-right: 5px solid var(--accent-blue); padding-right: 20px; }
+        .section-header h2 { font-size: 2.2rem; font-weight: 900; text-transform: uppercase; }
 
-        .products-section { padding: 80px 8%; }
-        .section-title { text-align: center; margin-bottom: 60px; font-size: 2.5rem; font-weight: 700; color: var(--nr-dark); }
+        /* --- Products Grid --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-bottom: 60px; }
+        .card { background: var(--card-bg); border-radius: 8px; overflow: hidden; transition: 0.3s; border: 1px solid var(--border); text-decoration: none; color: inherit; position: relative; }
+        .card:hover { transform: translateY(-10px); border-color: var(--accent-blue); box-shadow: 0 10px 30px rgba(0,120,242,0.1); }
+        
+        .img-container { width: 100%; aspect-ratio: 16/9; background: #222; overflow: hidden; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; filter: brightness(0.8); }
+        .card:hover img { transform: scale(1.05); filter: brightness(1); }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { background: var(--white); border-radius: 15px; overflow: hidden; transition: 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-decoration: none; color: inherit; }
-        .card:hover { transform: translateY(-10px); }
-        .img-box { width: 100%; aspect-ratio: 3/4; background: #f5f5f5; }
-        .img-box img { width: 100%; height: 100%; object-fit: cover; }
-        .card-body { padding: 20px; text-align: center; }
-        .card-body h3 { font-size: 1.2rem; margin-bottom: 5px; color: var(--nr-dark); }
-        .card-price { color: var(--nr-gold); font-weight: 900; }
+        .card-body { padding: 20px; }
+        .card-tag { font-size: 0.65rem; color: var(--accent-blue); font-weight: 900; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .card-title { font-size: 1.4rem; font-weight: 900; margin-bottom: 10px; }
+        .card-desc { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px; height: 50px; overflow: hidden; }
+        .btn-card { display: inline-block; padding: 8px 20px; background: #2a2a2a; border-radius: 4px; font-size: 0.8rem; font-weight: 700; transition: 0.3s; }
+        .card:hover .btn-card { background: var(--accent-blue); }
 
-        footer { background: #111; color: #888; padding: 80px 8% 40px; margin-top: 100px; text-align: right; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
-        .footer-logo { color: white; font-size: 1.5rem; font-weight: 900; margin-bottom: 20px; }
-        .footer-bottom { border-top: 1px solid #222; margin-top: 50px; padding-top: 30px; text-align: center; font-size: 0.8rem; }
+        /* --- Footer --- */
+        footer { background: #121212; padding: 60px 5%; border-top: 1px solid var(--border); text-align: center; }
+        .footer-logo { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 1.5rem; opacity: 0.4; margin-bottom: 20px; display: block; }
+        .footer-copy { color: #555; font-size: 0.8rem; }
+
+        @media (max-width: 768px) { nav { display: none; } .hero h1 { font-size: 3.5rem; } }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo">ناريمان <span>NARIMAN</span></div>
-    <nav>
-        <a href="#">الرئيسية</a>
-        <a href="#store">المتجر</a>
-        <a href="#">تواصل معنا</a>
-    </nav>
-    <a href="#" class="btn-reserve">اطلبي الآن</a>
-</header>
+    <header>
+        <div class="logo">MICRO<span>UP</span></div>
+        <nav>
+            <a href="#ai-apps">تطبيقات الذكاء الاصطناعي</a>
+            <a href="#games">الألعاب</a>
+            <a href="#store">المتجر</a>
+        </nav>
+        <a href="mailto:support@microupstudios.com" class="btn-contact">تواصل مع الاستوديو</a>
+    </header>
 
-<section class="hero">
-    <h1>أناقة فلسطينية عصرية</h1>
-    <p>مجموعة ربيع 2026 المختارة بعناية لأجلكِ</p>
-</section>
+    <section class="hero">
+        <h1 dir="ltr">BEYOND LIMITS</h1>
+        <p>نصنع المستقبل بأكوادنا</p>
+    </section>
 
-<main id="store" class="products-section">
-    <h2 class="section-title">تشكيلتنا الجديدة</h2>
-    <div class="grid">
-        <div class="card">
-            <div class="img-box"><img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=800"></div>
-            <div class="card-body">
-                <h3>فستان "سلاف" المخملي</h3>
-                <p class="card-price">٤٥٠ شيكل</p>
-            </div>
+    <section id="ai-apps">
+        <div class="section-header">
+            <h2>تطبيقات الذكاء الاصطناعي</h2>
         </div>
-        <div class="card">
-            <div class="img-box"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=800"></div>
-            <div class="card-body">
-                <h3>طقم إكسسوار الوردة الذهبية</h3>
-                <p class="card-price">١٨٠ شيكل</p>
-            </div>
+        <div class="grid">
+            <a href="https://play.google.com/store/apps/details?id=com.youintoapps.aianimewallpaper" class="card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1578632292335-df3abbb0d586?auto=format&fit=crop&q=80&w=800" alt="AI Anime Wallpaper">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag">Art & Tools</span>
+                    <h3 class="card-title">AI Anime Wallpaper 4K</h3>
+                    <p class="card-desc">أول تطبيق عربي لتوليد خلفيات الأنمي بدقة 4K باستخدام محركات AI متطورة.</p>
+                    <div class="btn-card">فتح على المتجر</div>
+                </div>
+            </a>
         </div>
-        <div class="card">
-            <div class="img-box"><img src="https://images.unsplash.com/photo-1550639525-c97d455acf70?auto=format&fit=crop&q=80&w=800"></div>
-            <div class="card-body">
-                <h3>عطر "ناريمان" الخاص</h3>
-                <p class="card-price">٢٢٠ شيكل</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="img-box"><img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&q=80&w=800"></div>
-            <div class="card-body">
-                <h3>حقيبة اليد الكلاسيكية</h3>
-                <p class="card-price">٣٠٠ شيكل</p>
-            </div>
-        </div>
-    </div>
-</main>
+    </section>
 
-<footer>
-    <div class="footer-grid">
-        <div>
-            <div class="footer-logo">ناريمان | NARIMAN</div>
-            <p>عنواننا: فلسطين، سلفيت، الشارع الرئيسي.</p>
+    <section id="games" style="background-color: #0d0d0f;">
+        <div class="section-header" style="border-right-color: var(--accent-purple);">
+            <h2>مختبر الألعاب (Game Labs)</h2>
         </div>
-        <div>
-            <h4 style="color: white; margin-bottom: 20px;">روابط سريعة</h4>
-            <p>عن البراند</p>
-            <p>سياسة الاستبدال</p>
+        <div class="grid">
+            <div class="card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1611996598533-461f74d4b66b?auto=format&fit=crop&q=80&w=800" alt="Micro Crush">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag" style="color: var(--accent-purple);">Match-3 Game</span>
+                    <h3 class="card-title">Micro Crush</h3>
+                    <p class="card-desc">تحدي الذكاء والألوان في لعبة ممتعة مبنية بمحرك Godot 4.</p>
+                    <div class="btn-card">قريباً</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800" alt="Micro Fly">
+                </div>
+                <div class="card-body">
+                    <span class="card-tag" style="color: var(--accent-purple);">Arcade</span>
+                    <h3 class="card-title">Micro Fly (Beta)</h3>
+                    <p class="card-desc">اختبر مهاراتك في الطيران والمناورة في عوالم إجرائية معقدة.</p>
+                    <div class="btn-card">بيتا</div>
+                </div>
+            </div>
         </div>
-        <div>
-            <h4 style="color: white; margin-bottom: 20px;">اتصلي بنا</h4>
-            <p>واتساب: 059XXXXXXX</p>
-            <p>Email: info@nariman.ps</p>
+    </section>
+
+    <section id="store">
+        <div class="section-header">
+            <h2>المتجر الرسمي (Merch)</h2>
         </div>
-    </div>
-    <div class="footer-bottom">
-        &copy; 2026 ناريمان - سلفيت، فلسطين. صمم بكل حب.
-    </div>
-</footer>
+        <div class="grid">
+            <div class="card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&q=80&w=800" alt="MicroUp Tee">
+                </div>
+                <div class="card-body">
+                    <span class="card-category">Clothing</span>
+                    <h3 class="card-title">تيشيرت MicroUp الرسمي</h3>
+                    <p class="card-desc">قطعة حصرية لمجتمع مطوري وعشاق ألعابنا.</p>
+                    <div class="btn-card">قريباً</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">MICRO<span>UP</span> STUDIOS</div>
+        <div class="footer-copy">
+            &copy; 2026 MicroUp Studios Inc. | سلفيت، فلسطين <br>
+            صمم بواسطة أحمد — مهندس الحوسبة المتنقلة
+        </div>
+    </footer>
 
 </body>
 </html>
