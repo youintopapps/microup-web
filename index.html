@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MicroUp Studios | الرئيسية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>MicroUp Studios | Official</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* --- الألوان والإعدادات الأساسية --- */
+        /* --- المتغيرات والألوان الفخمة --- */
         :root {
-            --bg-color: #0d0e15; /* لون خلفية داكن جداً */
-            --card-bg: #1a1c29;
+            --bg-dark: #050505;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --accent-glow: #00f3ff;
+            --accent-purple: #8a2be2;
             --text-main: #ffffff;
-            --text-muted: #a0a5bc;
-            --neon-blue: #00f3ff;
-            --neon-purple: #b026ff;
+            --text-secondary: #8892b0;
         }
 
         * {
@@ -22,64 +23,73 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
         }
 
+        /* خلفية متحركة تعطي عمق (Mesh Gradient) */
         body {
-            background-color: var(--bg-color);
+            background-color: var(--bg-dark);
             color: var(--text-main);
-            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 243, 255, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(138, 43, 226, 0.08), transparent 25%);
+            background-attachment: fixed;
         }
 
-        a {
-            text-decoration: none;
-            color: var(--text-main);
-        }
-
-        /* --- الشريط العلوي (Navbar) --- */
+        /* --- الهيدر الزجاجي الفخم --- */
         header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5vw;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 50px;
-            background: rgba(13, 14, 21, 0.9);
-            position: fixed;
-            width: 100%;
-            top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            background: rgba(5, 5, 5, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
         }
 
         .logo {
-            font-size: 24px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
             font-weight: 900;
-            color: var(--neon-blue);
-            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #fff, var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         nav ul {
-            list-style: none;
             display: flex;
-            gap: 30px;
+            gap: 40px;
+            list-style: none;
         }
 
-        nav ul li a {
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 16px;
             font-weight: 700;
-            transition: color 0.3s;
+            transition: 0.3s;
+            position: relative;
         }
 
-        nav ul li a:hover {
-            color: var(--neon-purple);
+        nav a:hover {
+            color: var(--accent-glow);
         }
 
-        .store-badge {
-            background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            color: white;
+        .btn-store {
+            background: linear-gradient(135deg, var(--accent-purple), #4a00e0);
+            padding: 8px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
         }
 
-        /* --- القسم الرئيسي (Hero Section) --- */
+        /* --- الواجهة الرئيسية (Hero 3D Effect) --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -87,205 +97,251 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
-            /* صورة خلفية مؤقتة داكنة */
-            background-image: linear-gradient(rgba(13, 14, 21, 0.8), rgba(13, 14, 21, 0.9)), url('https://placehold.co/1920x1080/1a1c29/333333?text=Background+Image');
-            background-size: cover;
-            background-position: center;
+            position: relative;
         }
 
         .hero h1 {
-            font-size: 50px;
+            font-size: clamp(40px, 8vw, 80px);
             font-weight: 900;
+            line-height: 1.2;
             margin-bottom: 20px;
-            background: -webkit-linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            background: linear-gradient(to right, #ffffff, var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            z-index: 2;
+        }
+
+        .hero span.highlight {
+            background: linear-gradient(135deg, var(--accent-glow), var(--accent-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 20px;
-            color: var(--text-muted);
+            font-size: 22px;
+            color: var(--text-secondary);
+            max-width: 700px;
             margin-bottom: 40px;
-            max-width: 600px;
+            z-index: 2;
         }
 
-        .btn {
-            padding: 15px 40px;
-            font-size: 18px;
-            font-weight: 700;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            background: var(--neon-blue);
-            color: #000;
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
-            transition: 0.3s;
+        /* عنصر بصري ثلاثي الأبعاد في الخلفية */
+        .hero-3d-element {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, var(--accent-glow), var(--accent-purple));
+            filter: blur(100px);
+            opacity: 0.2;
+            border-radius: 50%;
+            animation: float 6s infinite alternate ease-in-out;
+            z-index: 1;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(0, 243, 255, 0.7);
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-50px) scale(1.1); }
         }
 
-        /* --- قسم الألعاب والأعمال (Portfolio) --- */
+        /* --- قسم الأعمال المذهل (3D Cards) --- */
         .portfolio {
-            padding: 100px 50px;
+            padding: 100px 5vw;
+            position: relative;
+        }
+
+        .section-header {
             text-align: center;
+            margin-bottom: 80px;
         }
 
-        .section-title {
-            font-size: 36px;
-            margin-bottom: 50px;
-            color: var(--neon-purple);
+        .section-header h2 {
+            font-size: 40px;
+            font-weight: 900;
         }
 
-        .games-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .game-card {
-            background-color: var(--card-bg);
-            border-radius: 15px;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 50px;
             padding: 20px;
-            width: 300px;
-            transition: 0.3s;
-            border: 1px solid transparent;
         }
 
-        .game-card:hover {
-            border-color: var(--neon-blue);
-            transform: translateY(-10px);
+        /* بطاقة اللعبة بتأثير الزجاج والـ 3D */
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
+            cursor: pointer;
         }
 
-        .game-icon {
+        .card-img-wrapper {
             width: 100%;
-            height: 250px;
-            border-radius: 10px;
-            object-fit: cover;
-            margin-bottom: 20px;
+            height: 300px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            transform: translateZ(50px); /* يبرز الصورة للخارج */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .game-card h3 {
-            font-size: 24px;
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            transform: translateZ(30px); /* يبرز النص للخارج */
+        }
+
+        .card h3 {
+            font-size: 28px;
             margin-bottom: 10px;
         }
 
-        .game-card p {
-            color: var(--text-muted);
+        .card p {
+            color: var(--text-secondary);
+            font-size: 15px;
             margin-bottom: 20px;
-            font-size: 14px;
         }
 
-        .download-btn {
+        .btn-play {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 30px;
             background: transparent;
-            border: 2px solid var(--neon-purple);
-            color: var(--text-main);
-            border-radius: 5px;
+            border: 1px solid var(--accent-glow);
+            color: var(--accent-glow);
+            border-radius: 12px;
             font-weight: 700;
             transition: 0.3s;
-        }
-
-        .download-btn:hover {
-            background: var(--neon-purple);
-        }
-
-        /* --- قسم التواصل والدعم --- */
-        .contact {
-            padding: 80px 50px;
-            background-color: var(--card-bg);
-            text-align: center;
-        }
-
-        .contact p {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: var(--text-muted);
-        }
-
-        .support-email {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--neon-blue);
+            text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* --- الفوتر --- */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #08090d;
-            color: var(--text-muted);
-            font-size: 14px;
+        .card:hover .btn-play {
+            background: var(--accent-glow);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
         }
 
-        /* استجابة الشاشات الصغيرة (للهواتف) */
-        @media (max-width: 768px) {
-            nav ul {
-                display: none; /* إخفاء القائمة في الجوال مؤقتاً للتبسيط */
-            }
-            .hero h1 { font-size: 36px; }
-            .games-grid { flex-direction: column; align-items: center; }
+        /* --- قسم الدعم والتواصل --- */
+        .contact {
+            padding: 100px 5vw;
+            text-align: center;
+            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.02));
+            border-top: 1px solid var(--glass-border);
         }
+
+        .contact-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 50px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-email {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent-glow);
+            margin: 20px 0;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            border-top: 1px solid var(--glass-border);
+        }
+
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">MicroUp Studios</div>
+        <div class="logo">MICROUP</div>
         <nav>
             <ul>
-                <li><a href="#hero">الرئيسية</a></li>
-                <li><a href="#portfolio">ألعابنا</a></li>
-                <li><a href="#contact">الدعم الفني</a></li>
-                <li><a href="#" class="store-badge">المتجر (قريباً)</a></li>
+                <li><a href="#portfolio">الألعاب</a></li>
+                <li><a href="#contact">الدعم</a></li>
+                <li><a href="#" class="btn-store">المتجر (قريباً)</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="hero" class="hero">
-        <img src="https://placehold.co/150x150/1a1c29/00f3ff?text=Logo" alt="MicroUp Logo" style="border-radius: 50%; margin-bottom: 20px;">
-        <h1>نصنع عوالم من الخيال</h1>
-        <p>استوديو مستقل لتطوير الألعاب والتطبيقات. نقدم تجارب ممتعة، مبتكرة، ومصممة بشغف.</p>
-        <a href="#portfolio"><button class="btn">استكشف أعمالنا</button></a>
+    <section class="hero">
+        <div class="hero-3d-element"></div>
+        <h1>مستقبل الترفيه <br><span class="highlight">بين يديك</span></h1>
+        <p>نحن نصمم عوالم مذهلة وتطبيقات استثنائية. استوديو متكامل يدمج بين الفن البرمجي والتجربة البصرية الخارقة.</p>
     </section>
 
     <section id="portfolio" class="portfolio">
-        <h2 class="section-title">أحدث الإصدارات</h2>
+        <div class="section-header">
+            <h2>مشاريعنا الرائدة</h2>
+        </div>
         
-        <div class="games-grid">
-            <div class="game-card">
-                <img src="https://placehold.co/400x400/2a2d40/ffffff?text=Micro+Crush+Icon" alt="Micro Crush" class="game-icon">
-                <h3>Micro Crush</h3>
-                <p>لعبة ألغاز ممتعة وتحديات يومية. طابق الألوان واربح النقاط في أروع تجربة بصرية.</p>
-                <a href="#" class="download-btn">حملها الآن</a>
+        <div class="grid">
+            <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?auto=format&fit=crop&q=80&w=800" alt="Micro Crush" class="card-img">
+                </div>
+                <div class="card-content">
+                    <h3>Micro Crush</h3>
+                    <p>تجربة ألغاز بصرية خلابة. طابق العناصر في بيئة ديناميكية وحقق أعلى الأرقام القياسية.</p>
+                    <a href="#" class="btn-play">استكشف اللعبة</a>
+                </div>
             </div>
 
-            <div class="game-card">
-                <img src="https://placehold.co/400x400/2a2d40/ffffff?text=Micro+Fly+Icon" alt="Micro Fly" class="game-icon">
-                <h3>Micro Fly</h3>
-                <p>حلق بعيداً وتجاوز العقبات! اختبر ردة فعلك في هذه اللعبة السريعة والمليئة بالحماس.</p>
-                <a href="#" class="download-btn">حملها الآن</a>
+            <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800" alt="Micro Fly" class="card-img">
+                </div>
+                <div class="card-content">
+                    <h3>Micro Fly</h3>
+                    <p>تحكم مطلق وسرعة جنونية. تجاوز العقبات في عالم متسارع يتحدى ردود أفعالك.</p>
+                    <a href="#" class="btn-play">استكشف اللعبة</a>
+                </div>
             </div>
-            
-            </div>
+        </div>
     </section>
 
     <section id="contact" class="contact">
-        <h2 class="section-title">تواصل معنا</h2>
-        <p>لديكم استفسار، اقتراح، أو تواجهون مشكلة في ألعابنا؟ نحن هنا للمساعدة.</p>
-        <p>راسلونا عبر البريد الإلكتروني المخصص للدعم الفني:</p>
-        <div class="support-email">support@microupstudios.com</div>
+        <div class="contact-box">
+            <h2>تواصل مع الاستوديو</h2>
+            <p style="color: var(--text-secondary); margin-top: 15px;">للاستفسارات التجارية، الدعم الفني، أو الشراكات الاستراتيجية</p>
+            <a href="mailto:support@microupstudios.com" class="contact-email">support@microupstudios.com</a>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 MicroUp Studios. جميع الحقوق محفوظة.</p>
+        <p>&copy; 2026 MicroUp Studios Inc. All rights reserved.</p>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script>
+        // تفعيل المكتبة على البطاقات
+        VanillaTilt.init(document.querySelectorAll(".card"), {
+            max: 15,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
+        });
+    </script>
 </body>
 </html>
