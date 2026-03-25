@@ -3,419 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NARIMAN - ناريمان | أناقة تلامس الروح</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;600&family=Reem+Kufi&display=swap" rel="stylesheet">
+    <title>ناريمان | NARIMAN - سلفيت، فلسطين</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* --- الأساسيات والتهيئة --- */
         :root {
-            --primary-gold: #C19A6B; /* اللون الذهبي/البني للشعار والأزرار */
-            --primary-black: #121212; /* اللون الأسود للنصوص والقائمة وزر الحجز */
-            --primary-white: #FFFFFF; /* اللون الأبيض للنصوص فوق الهيرو */
-            --bg-body: #F4F4F9; /* خلفية خفيفة جداً مثل المتصفح في الصورة */
-            --font-arabic-clean: 'Noto Sans Arabic', sans-serif;
-            --font-arabic-calligraphic: 'Reem Kufi', sans-serif; /* للعنوان الرئيسي */
-            --font-english: 'Montserrat', sans-serif;
+            --nr-pink: #fdf2f2;
+            --nr-gold: #c5a059;
+            --nr-dark: #1a1a1a;
+            --nr-text: #444;
+            --white: #ffffff;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background-color: var(--nr-pink); color: var(--nr-text); overflow-x: hidden; }
 
-        body {
-            font-family: var(--font-arabic-clean);
-            background-color: var(--bg-body);
-            color: var(--primary-black);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* --- حاوي العناصر الرئيسي --- */
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        /* --- الأزرار البيضاوية --- */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s ease;
-            text-transform: capitalize;
-            text-align: center;
-        }
-
-        /* --- الرأس (Header) --- */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 90px;
-            background-color: rgba(255, 255, 255, 0.9); /* خلفية بيضاء شبه شفافة */
-            backdrop-filter: blur(10px); /* تأثير ضبابي */
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #E5E5E5;
+            height: 80px; background: rgba(255,255,255,0.9);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 8%; position: fixed; width: 100%; top: 0; z-index: 1000;
+            backdrop-filter: blur(10px); border-bottom: 1px solid #eee;
         }
 
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
+        .logo { font-weight: 900; font-size: 1.8rem; color: var(--nr-dark); }
+        .logo span { color: var(--nr-gold); font-family: serif; font-style: italic; }
 
-        /* الشعار */
-        header .logo {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            line-height: 1.1;
-        }
+        nav a { margin-right: 25px; text-decoration: none; color: var(--nr-dark); font-weight: 700; font-size: 0.9rem; }
+        .btn-reserve { background: var(--nr-dark); color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-size: 0.8rem; }
 
-        header .logo-english {
-            font-family: var(--font-english);
-            font-size: 26px;
-            font-weight: 600;
-            color: var(--primary-gold);
-            letter-spacing: 1px;
-        }
-
-        header .logo-arabic {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--primary-black);
-        }
-
-        /* القائمة */
-        header nav ul {
-            display: flex;
-            gap: 30px;
-        }
-
-        header nav a {
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--primary-black);
-        }
-
-        header nav a:hover {
-            color: var(--primary-gold);
-        }
-
-        /* زر الحجز */
-        header .book-btn {
-            background-color: var(--primary-black);
-            color: var(--primary-white);
-            padding: 12px 28px;
-            font-size: 14px;
-        }
-
-        header .book-btn:hover {
-            background-color: var(--primary-gold);
-            color: var(--primary-white);
-        }
-
-        /* --- القسم الرئيسي (Hero Section) --- */
         .hero {
-            position: relative;
-            height: 100vh;
-            background-image: url('https://images.unsplash.com/photo-1579783921711-d70c46b5a1f6?q=80&w=2000&auto=format&fit=crop'); /* صورة احتياطية داخلية للبوتيك الفاخر */
-            background-size: cover;
-            background-position: center;
-            margin-top: -90px; /* للبدء من أسفل الرأس */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1;
+            height: 80vh; margin-top: 80px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; color: white;
         }
 
-        /* تأثير تدرج لوني لتسهيل قراءة النص الأبيض */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
-        }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; text-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.2rem; margin: 20px 0 40px; font-weight: 300; }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            color: var(--primary-white);
-            max-width: 800px;
-            padding: 0 20px;
-        }
+        .products-section { padding: 80px 8%; }
+        .section-title { text-align: center; margin-bottom: 60px; font-size: 2.5rem; font-weight: 700; color: var(--nr-dark); }
 
-        .hero h1 {
-            font-family: var(--font-arabic-calligraphic);
-            font-size: 64px;
-            font-weight: 400;
-            margin-bottom: 20px;
-            line-height: 1.1;
-        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: var(--white); border-radius: 15px; overflow: hidden; transition: 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-decoration: none; color: inherit; }
+        .card:hover { transform: translateY(-10px); }
+        .img-box { width: 100%; aspect-ratio: 3/4; background: #f5f5f5; }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .card-body { padding: 20px; text-align: center; }
+        .card-body h3 { font-size: 1.2rem; margin-bottom: 5px; color: var(--nr-dark); }
+        .card-price { color: var(--nr-gold); font-weight: 900; }
 
-        .hero p {
-            font-size: 20px;
-            font-weight: 400;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        .hero .discover-btn {
-            background-color: var(--primary-gold);
-            color: var(--primary-black);
-            padding: 16px 40px;
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .hero .discover-btn:hover {
-            background-color: var(--primary-black);
-            color: var(--primary-white);
-        }
-
-        /* --- شبكة بطاقات الفئات (Category Grid) --- */
-        .categories {
-            padding: 80px 0;
-            background-color: var(--primary-white); /* خلفية البطاقات بيضاء ونظيفة */
-        }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .category-card {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            background-color: #F8F8F8; /* خلفية خفيفة للبطاقة */
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
-        }
-
-        .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        /* النص فوق الصورة */
-        .category-card .card-info-wrapper {
-            padding: 30px 30px 20px;
-            text-align: right;
-            order: 1; /* لجعل النص فوق الصورة */
-        }
-
-        .category-card .card-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--primary-black);
-            margin-bottom: 5px;
-        }
-
-        .category-card .card-translation {
-            font-family: var(--font-english);
-            font-size: 15px;
-            font-weight: 500;
-            color: #777; /* رمادي خفيف للترجمة */
-            text-transform: capitalize;
-        }
-
-        /* حاوي الصورة */
-        .category-card .card-image-wrapper {
-            width: 100%;
-            height: 380px; /* ارتفاع الصور في البطاقات */
-            overflow: hidden;
-            order: 2; /* لجعل الصورة أسفل النص */
-        }
-
-        .category-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .category-card:hover img {
-            transform: scale(1.05);
-        }
-
-        /* حاوي الزر */
-        .category-card .card-btn-wrapper {
-            padding: 20px 30px 30px;
-            text-align: right;
-            order: 3; /* لجعل الزر في الأسفل */
-        }
-
-        .category-card .card-btn {
-            background-color: var(--primary-gold);
-            color: var(--primary-black);
-            padding: 14px 30px;
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .category-card .card-btn:hover {
-            background-color: var(--primary-black);
-            color: var(--primary-white);
-        }
-
-        /* --- المتذيل (Footer) - إضافة متذيل بسيط لتكامل التصميم --- */
-        footer {
-            background-color: #F8F8F8;
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid #E5E5E5;
-        }
-
-        footer .container {
-            font-size: 14px;
-            color: #777;
-        }
-
-        /* --- استعلامات الوسائط (التجاوب) --- */
-        @media (max-width: 1024px) {
-            header nav ul {
-                gap: 20px;
-            }
-            .hero h1 {
-                font-size: 48px;
-            }
-            .hero p {
-                font-size: 18px;
-            }
-            .category-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            header .container {
-                padding: 0 20px;
-            }
-            header nav {
-                display: none; /* إخفاء القائمة على المحمول (سأحتاج لقائمة هامبرغر حقيقية للتحويل) */
-            }
-            .hero h1 {
-                font-size: 36px;
-            }
-            .hero p {
-                font-size: 16px;
-            }
-            .category-grid {
-                grid-template-columns: 1fr; /* عمود واحد على المحمول */
-            }
-            .category-card .card-image-wrapper {
-                height: 300px;
-            }
-        }
+        footer { background: #111; color: #888; padding: 80px 8% 40px; margin-top: 100px; text-align: right; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        .footer-logo { color: white; font-size: 1.5rem; font-weight: 900; margin-bottom: 20px; }
+        .footer-bottom { border-top: 1px solid #222; margin-top: 50px; padding-top: 30px; text-align: center; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <div class="logo">
-                <span class="logo-english">NARIMAN</span>
-                <span class="logo-arabic">ناريمان</span>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#new">الجديد</a></li>
-                    <li><a href="#fashion">الأزياء</a></li>
-                    <li><a href="#accessories">الإكسسوارات</a></li>
-                    <li><a href="#about">عن ناريمان</a></li>
-                </ul>
-            </nav>
-            <button class="btn book-btn">احجزي موعدك</button>
-        </div>
-    </header>
+<header>
+    <div class="logo">ناريمان <span>NARIMAN</span></div>
+    <nav>
+        <a href="#">الرئيسية</a>
+        <a href="#store">المتجر</a>
+        <a href="#">تواصل معنا</a>
+    </nav>
+    <a href="#" class="btn-reserve">اطلبي الآن</a>
+</header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>أناقة تلامس الروح</h1>
-            <p>استكشفي تشكيلتنا الأخيرة المصممة لتبرز جمالك الطبيعي بأنقى الخامات وأرقى التصاميم العصرية.</p>
-            <button class="btn discover-btn">اكتشفي المجموعة</button>
-        </div>
-    </section>
+<section class="hero">
+    <h1>أناقة فلسطينية عصرية</h1>
+    <p>مجموعة ربيع 2026 المختارة بعناية لأجلكِ</p>
+</section>
 
-    <section class="categories">
-        <div class="container">
-            <div class="category-grid">
-
-                <a href="#beauty" class="category-card">
-                    <div class="card-info-wrapper">
-                        <h2 class="card-title">الجمال</h2>
-                        <p class="card-translation">talaamas al-rooh</p>
-                    </div>
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1611095973763-414019577370?q=80&w=1000&auto=format&fit=crop" alt="Beauty products on marble">
-                    </div>
-                    <div class="card-btn-wrapper">
-                        <button class="btn card-btn">اكتشفي العناية</button>
-                    </div>
-                </a>
-
-                <a href="#accessories" class="category-card">
-                    <div class="card-info-wrapper">
-                        <h2 class="card-title">الإكسسوارات</h2>
-                        <p class="card-translation">Accessories</p>
-                    </div>
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1549497517-31018e694f3b?q=80&w=1000&auto=format&fit=crop" alt="Luxury gold jewelry and leather bag flat lay">
-                    </div>
-                    <div class="card-btn-wrapper">
-                        <button class="btn card-btn">اكتشفي التفاصيل</button>
-                    </div>
-                </a>
-
-                <a href="#fashion" class="category-card">
-                    <div class="card-info-wrapper">
-                        <h2 class="card-title">الأزياء</h2>
-                        <p class="card-translation">Fashion</p>
-                    </div>
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1578632292335-df3abbb0d586?q=80&w=1000&auto=format&fit=crop" alt="Woman in elegant gold gown in Moroccan riad garden">
-                    </div>
-                    <div class="card-btn-wrapper">
-                        <button class="btn card-btn">اكتشفي الملابس</button>
-                    </div>
-                </a>
-
+<main id="store" class="products-section">
+    <h2 class="section-title">تشكيلتنا الجديدة</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="img-box"><img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=800"></div>
+            <div class="card-body">
+                <h3>فستان "سلاف" المخملي</h3>
+                <p class="card-price">٤٥٠ شيكل</p>
             </div>
         </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 NARIMAN Studio. All Rights Reserved. - جميع الحقوق محفوظة لـ ناريمان ستوديو</p>
+        <div class="card">
+            <div class="img-box"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=800"></div>
+            <div class="card-body">
+                <h3>طقم إكسسوار الوردة الذهبية</h3>
+                <p class="card-price">١٨٠ شيكل</p>
+            </div>
         </div>
-    </footer>
+        <div class="card">
+            <div class="img-box"><img src="https://images.unsplash.com/photo-1550639525-c97d455acf70?auto=format&fit=crop&q=80&w=800"></div>
+            <div class="card-body">
+                <h3>عطر "ناريمان" الخاص</h3>
+                <p class="card-price">٢٢٠ شيكل</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img-box"><img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&q=80&w=800"></div>
+            <div class="card-body">
+                <h3>حقيبة اليد الكلاسيكية</h3>
+                <p class="card-price">٣٠٠ شيكل</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <div class="footer-logo">ناريمان | NARIMAN</div>
+            <p>عنواننا: فلسطين، سلفيت، الشارع الرئيسي.</p>
+        </div>
+        <div>
+            <h4 style="color: white; margin-bottom: 20px;">روابط سريعة</h4>
+            <p>عن البراند</p>
+            <p>سياسة الاستبدال</p>
+        </div>
+        <div>
+            <h4 style="color: white; margin-bottom: 20px;">اتصلي بنا</h4>
+            <p>واتساب: 059XXXXXXX</p>
+            <p>Email: info@nariman.ps</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 ناريمان - سلفيت، فلسطين. صمم بكل حب.
+    </div>
+</footer>
 
 </body>
 </html>
