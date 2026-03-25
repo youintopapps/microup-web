@@ -1,347 +1,78 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MicroUp Studios | Official</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<section id="portfolio" class="portfolio">
+    <div class="section-header">
+        <h2>إصداراتنا الرسمية</h2>
+        <p style="color: var(--text-secondary);">تطبيقات ذكية وألعاب تفاعلية مصممة بأحدث التقنيات</p>
+    </div>
     
-    <style>
-        /* --- المتغيرات والألوان الفخمة --- */
-        :root {
-            --bg-dark: #050505;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --accent-glow: #00f3ff;
-            --accent-purple: #8a2be2;
-            --text-main: #ffffff;
-            --text-secondary: #8892b0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        /* خلفية متحركة تعطي عمق (Mesh Gradient) */
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(0, 243, 255, 0.08), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(138, 43, 226, 0.08), transparent 25%);
-            background-attachment: fixed;
-        }
-
-        /* --- الهيدر الزجاجي الفخم --- */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 5vw;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(5, 5, 5, 0.6);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 28px;
-            font-weight: 900;
-            letter-spacing: 2px;
-            background: linear-gradient(90deg, #fff, var(--text-secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-
-        nav a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 700;
-            transition: 0.3s;
-            position: relative;
-        }
-
-        nav a:hover {
-            color: var(--accent-glow);
-        }
-
-        .btn-store {
-            background: linear-gradient(135deg, var(--accent-purple), #4a00e0);
-            padding: 8px 20px;
-            border-radius: 30px;
-            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
-        }
-
-        /* --- الواجهة الرئيسية (Hero 3D Effect) --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero h1 {
-            font-size: clamp(40px, 8vw, 80px);
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #ffffff, var(--text-secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            z-index: 2;
-        }
-
-        .hero span.highlight {
-            background: linear-gradient(135deg, var(--accent-glow), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 22px;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin-bottom: 40px;
-            z-index: 2;
-        }
-
-        /* عنصر بصري ثلاثي الأبعاد في الخلفية */
-        .hero-3d-element {
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, var(--accent-glow), var(--accent-purple));
-            filter: blur(100px);
-            opacity: 0.2;
-            border-radius: 50%;
-            animation: float 6s infinite alternate ease-in-out;
-            z-index: 1;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(-50px) scale(1.1); }
-        }
-
-        /* --- قسم الأعمال المذهل (3D Cards) --- */
-        .portfolio {
-            padding: 100px 5vw;
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-header h2 {
-            font-size: 40px;
-            font-weight: 900;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 50px;
-            padding: 20px;
-        }
-
-        /* بطاقة اللعبة بتأثير الزجاج والـ 3D */
-        .card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 20px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
-            transform-style: preserve-3d;
-            cursor: pointer;
-        }
-
-        .card-img-wrapper {
-            width: 100%;
-            height: 300px;
-            border-radius: 16px;
-            overflow: hidden;
-            margin-bottom: 24px;
-            transform: translateZ(50px); /* يبرز الصورة للخارج */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .card-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s;
-        }
-
-        .card:hover .card-img {
-            transform: scale(1.05);
-        }
-
-        .card-content {
-            transform: translateZ(30px); /* يبرز النص للخارج */
-        }
-
-        .card h3 {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: var(--text-secondary);
-            font-size: 15px;
-            margin-bottom: 20px;
-        }
-
-        .btn-play {
-            display: inline-block;
-            padding: 12px 30px;
-            background: transparent;
-            border: 1px solid var(--accent-glow);
-            color: var(--accent-glow);
-            border-radius: 12px;
-            font-weight: 700;
-            transition: 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .card:hover .btn-play {
-            background: var(--accent-glow);
-            color: #000;
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
-        }
-
-        /* --- قسم الدعم والتواصل --- */
-        .contact {
-            padding: 100px 5vw;
-            text-align: center;
-            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.02));
-            border-top: 1px solid var(--glass-border);
-        }
-
-        .contact-box {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            padding: 50px;
-            border-radius: 30px;
-            backdrop-filter: blur(10px);
-        }
-
-        .contact-email {
-            font-size: 28px;
-            font-weight: 900;
-            color: var(--accent-glow);
-            margin: 20px 0;
-            display: inline-block;
-            letter-spacing: 1px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: var(--text-secondary);
-            font-size: 14px;
-            border-top: 1px solid var(--glass-border);
-        }
-
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo">MICROUP</div>
-        <nav>
-            <ul>
-                <li><a href="#portfolio">الألعاب</a></li>
-                <li><a href="#contact">الدعم</a></li>
-                <li><a href="#" class="btn-store">المتجر (قريباً)</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <div class="hero-3d-element"></div>
-        <h1>مستقبل الترفيه <br><span class="highlight">بين يديك</span></h1>
-        <p>نحن نصمم عوالم مذهلة وتطبيقات استثنائية. استوديو متكامل يدمج بين الفن البرمجي والتجربة البصرية الخارقة.</p>
-    </section>
-
-    <section id="portfolio" class="portfolio">
-        <div class="section-header">
-            <h2>مشاريعنا الرائدة</h2>
-        </div>
-        
-        <div class="grid">
-            <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
-                <div class="card-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?auto=format&fit=crop&q=80&w=800" alt="Micro Crush" class="card-img">
-                </div>
-                <div class="card-content">
-                    <h3>Micro Crush</h3>
-                    <p>تجربة ألغاز بصرية خلابة. طابق العناصر في بيئة ديناميكية وحقق أعلى الأرقام القياسية.</p>
-                    <a href="#" class="btn-play">استكشف اللعبة</a>
-                </div>
+    <div class="grid">
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.2">
+            <div class="card-img-wrapper">
+                <img src="https://play-lh.googleusercontent.com/An-i7FInVp_hYmG-P8G_7z0C_N0Z4N5D-kM_N9-tE" alt="AI Anime Wallpaper 4K" class="card-img">
             </div>
-
-            <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
-                <div class="card-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800" alt="Micro Fly" class="card-img">
-                </div>
-                <div class="card-content">
-                    <h3>Micro Fly</h3>
-                    <p>تحكم مطلق وسرعة جنونية. تجاوز العقبات في عالم متسارع يتحدى ردود أفعالك.</p>
-                    <a href="#" class="btn-play">استكشف اللعبة</a>
-                </div>
+            <div class="card-content">
+                <div class="category-tag">Application</div>
+                <h3>AI Anime Wallpaper 4K</h3>
+                <p>خلفيات أنمي مذهلة بجودة 4K تم إنشاؤها وتنسيقها بواسطة الذكاء الاصطناعي لتناسب هاتفك.</p>
+                <a href="https://play.google.com/store/apps/details?id=YOUR_APP_ID" target="_blank" class="btn-play">مشاهدة على المتجر</a>
             </div>
         </div>
-    </section>
 
-    <section id="contact" class="contact">
-        <div class="contact-box">
-            <h2>تواصل مع الاستوديو</h2>
-            <p style="color: var(--text-secondary); margin-top: 15px;">للاستفسارات التجارية، الدعم الفني، أو الشراكات الاستراتيجية</p>
-            <a href="mailto:support@microupstudios.com" class="contact-email">support@microupstudios.com</a>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.2">
+            <div class="card-img-wrapper">
+                <img src="images/micro-crush-icon.png" alt="Micro Crush" class="card-img">
+            </div>
+            <div class="card-content">
+                <div class="category-tag">Game</div>
+                <h3>Micro Crush</h3>
+                <p>لعبة Match-3 مليئة بالتحديات والألوان. صممت بواسطة Godot 4 لتقدم تجربة لعب سلسة وممتعة.</p>
+                <a href="#" class="btn-play">العب الآن</a>
+            </div>
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2026 MicroUp Studios Inc. All rights reserved.</p>
-    </footer>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.2">
+            <div class="card-img-wrapper">
+                <img src="images/micro-fly-icon.png" alt="Micro Fly" class="card-img">
+            </div>
+            <div class="card-content">
+                <div class="category-tag">Beta Testing</div>
+                <h3>Micro Fly</h3>
+                <p>تحدى الجاذبية! هذه النسخة تتطلب تسجيل مسبق لتجربة الميزات الجديدة قبل الإطلاق الرسمي.</p>
+                <a href="#beta-form" class="btn-play" style="border-color: var(--accent-purple); color: var(--accent-purple);">سجل اهتمامك</a>
+            </div>
+        </div>
+    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-    <script>
-        // تفعيل المكتبة على البطاقات
-        VanillaTilt.init(document.querySelectorAll(".card"), {
-            max: 15,
-            speed: 400,
-            glare: true,
-            "max-glare": 0.2,
-        });
-    </script>
-</body>
-</html>
+    <div style="margin-top: 60px; text-align: center;">
+        <a href="https://play.google.com/store/apps/dev?id=YOUR_DEV_ID" target="_blank" class="main-store-link">
+            تصفح متجر MicroUp الكامل على Google Play
+        </a>
+    </div>
+</section>
+
+<style>
+    /* إضافات بسيطة للتنسيق الجديد */
+    .category-tag {
+        display: inline-block;
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 6px;
+        font-size: 12px;
+        color: var(--accent-glow);
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .main-store-link {
+        font-weight: 900;
+        color: #fff;
+        text-decoration: underline;
+        text-underline-offset: 8px;
+        transition: 0.3s;
+    }
+
+    .main-store-link:hover {
+        color: var(--accent-glow);
+        text-shadow: 0 0 10px var(--accent-glow);
+    }
+</style>
