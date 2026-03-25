@@ -24,7 +24,7 @@
         /* --- Navigation Bar --- */
         header {
             height: 80px;
-            background-color: var(--nr-white);
+            background-color: rgba(255, 255, 255, 0.95);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -57,12 +57,13 @@
         }
         .btn-reserve:hover { background-color: var(--nr-gold); transform: translateY(-2px); }
 
-        /* --- Hero Section --- */
+        /* --- Hero Section with Flower Background --- */
         .hero {
             height: 85vh;
             margin-top: 80px;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=2000');
+            /* تحديث: تم وضع خلفية ورود فخمة وناعمة */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1518732684841-8f5b80a1c97a?q=80&w=2000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -74,8 +75,8 @@
             color: white;
         }
 
-        .hero h1 { font-family: 'Marcellus', serif; font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 400; text-transform: uppercase; margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 40px; font-weight: 300; }
+        .hero h1 { font-family: 'Marcellus', serif; font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 400; text-transform: uppercase; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 40px; font-weight: 300; text-shadow: 0 1px 5px rgba(0,0,0,0.2); }
 
         .btn-primary {
             background-color: var(--nr-gold);
@@ -87,7 +88,7 @@
             text-transform: uppercase;
             font-size: 0.95rem;
             transition: 0.3s ease;
-            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3);
         }
         .btn-primary:hover { background-color: var(--nr-dark); transform: scale(1.03); }
 
@@ -192,7 +193,7 @@
                 <div class="img-box"><img src="https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?auto=format&fit=crop&q=80&w=800" alt="قفطان حريري فلسطيني"></div>
                 <div class="card-body">
                     <span class="card-category">أزياء راقية</span>
-                    <h3 class="card-title">قفطان حريري فلسطيني مطرز يدوياً</h3>
+                    <h3 class="card-title">قفطان حريري فلسطيني مطرز</h3>
                     <p class="card-price">١,٨٠٠ شيكل</p>
                 </div>
             </a>
@@ -322,7 +323,7 @@
                 <h4>تواصل معنا</h4>
                 <ul>
                     <li><a href="mailto:contact@narimanboutique.com">contact@narimanboutique.com</a></li>
-                    <li><a href="#">غزة، فلسطين</a></li>
+                    <li><a href="#">سلفيت، فلسطين</a></li>
                 </ul>
             </div>
         </div>
