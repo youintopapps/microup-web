@@ -3,94 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MicroUp Studios | الريادة في صناعة التقنية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>MicroUp Studios | الرئيسية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --primary: #00d2ff; --secondary: #0055ff; --bg: #050505; --card: #121214; --text: #e0e0e0; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Cairo', sans-serif; margin: 0; scroll-behavior: smooth; }
-        
-        /* Header */
-        header { padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #222; }
-        .logo { font-weight: 800; font-size: 1.5rem; color: var(--primary); text-decoration: none; }
+        /* --- الألوان والإعدادات الأساسية --- */
+        :root {
+            --bg-color: #0d0e15; /* لون خلفية داكن جداً */
+            --card-bg: #1a1c29;
+            --text-main: #ffffff;
+            --text-muted: #a0a5bc;
+            --neon-blue: #00f3ff;
+            --neon-purple: #b026ff;
+        }
 
-        /* Hero Section */
-        .hero { padding: 100px 20px; text-align: center; background: radial-gradient(circle at center, #1a1a2e 0%, #050505 100%); }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; background: linear-gradient(90deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; color: #aaa; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
 
-        /* Projects Section */
-        .section-title { text-align: center; margin: 50px 0; font-size: 2rem; color: var(--primary); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 0 5%; }
-        .card { background: var(--card); border-radius: 20px; padding: 30px; border: 1px solid #222; transition: 0.4s; position: relative; overflow: hidden; }
-        .card:hover { border-color: var(--primary); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,210,255,0.1); }
-        .card h3 { margin-top: 0; color: #fff; }
-        .card p { font-size: 0.95rem; color: #999; }
-        
-        /* Links & Buttons */
-        .links-container { margin-top: 20px; }
-        .btn { display: inline-block; padding: 10px 20px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
-        .btn-primary { background: var(--primary); color: #000; margin-left: 10px; }
-        .btn-outline { border: 1px solid var(--primary); color: var(--primary); }
-        .btn:hover { opacity: 0.8; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
 
-        /* Footer with Spice */
-        footer { text-align: center; padding: 40px 20px; border-top: 1px solid #222; margin-top: 50px; background: #0a0a0c; }
-        .dev-badge { background: rgba(0, 210, 255, 0.1); border: 1px solid var(--primary); padding: 15px 20px; border-radius: 15px; display: inline-block; margin-bottom: 20px; max-width: 800px;}
-        .dev-badge h4 { color: #fff; margin: 0 0 10px 0; font-size: 1.2rem; line-height: 1.6; }
-        .dev-badge p { color: var(--primary); margin: 0; font-weight: 600; font-size: 1.1rem; }
-        .copyright { color: #666; font-size: 0.9rem; margin-top: 20px; }
+        a {
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        /* --- الشريط العلوي (Navbar) --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(13, 14, 21, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--neon-purple);
+        }
+
+        .store-badge {
+            background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: white;
+        }
+
+        /* --- القسم الرئيسي (Hero Section) --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            /* صورة خلفية مؤقتة داكنة */
+            background-image: linear-gradient(rgba(13, 14, 21, 0.8), rgba(13, 14, 21, 0.9)), url('https://placehold.co/1920x1080/1a1c29/333333?text=Background+Image');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: -webkit-linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: var(--neon-blue);
+            color: #000;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(0, 243, 255, 0.7);
+        }
+
+        /* --- قسم الألعاب والأعمال (Portfolio) --- */
+        .portfolio {
+            padding: 100px 50px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: var(--neon-purple);
+        }
+
+        .games-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .game-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .game-card:hover {
+            border-color: var(--neon-blue);
+            transform: translateY(-10px);
+        }
+
+        .game-icon {
+            width: 100%;
+            height: 250px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .game-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .game-card p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: transparent;
+            border: 2px solid var(--neon-purple);
+            color: var(--text-main);
+            border-radius: 5px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .download-btn:hover {
+            background: var(--neon-purple);
+        }
+
+        /* --- قسم التواصل والدعم --- */
+        .contact {
+            padding: 80px 50px;
+            background-color: var(--card-bg);
+            text-align: center;
+        }
+
+        .contact p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        .support-email {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--neon-blue);
+            letter-spacing: 1px;
+        }
+
+        /* --- الفوتر --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #08090d;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* استجابة الشاشات الصغيرة (للهواتف) */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; /* إخفاء القائمة في الجوال مؤقتاً للتبسيط */
+            }
+            .hero h1 { font-size: 36px; }
+            .games-grid { flex-direction: column; align-items: center; }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <a href="#" class="logo">MicroUp Studios</a>
-</header>
+    <header>
+        <div class="logo">MicroUp Studios</div>
+        <nav>
+            <ul>
+                <li><a href="#hero">الرئيسية</a></li>
+                <li><a href="#portfolio">ألعابنا</a></li>
+                <li><a href="#contact">الدعم الفني</a></li>
+                <li><a href="#" class="store-badge">المتجر (قريباً)</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<section class="hero">
-    <h1>نبتكر للمستقبل</h1>
-    <p>في MicroUp Studios، نحوّل الأفكار المعقدة إلى تجارب رقمية مذهلة. متخصصون في تطوير الألعاب، تطبيقات الهواتف الذكية، ونشر المعرفة التقنية.</p>
-    <a href="https://play.google.com/store/apps/dev?id=4943719416556531980" class="btn btn-primary">متجر التطبيقات</a>
-</section>
+    <section id="hero" class="hero">
+        <img src="https://placehold.co/150x150/1a1c29/00f3ff?text=Logo" alt="MicroUp Logo" style="border-radius: 50%; margin-bottom: 20px;">
+        <h1>نصنع عوالم من الخيال</h1>
+        <p>استوديو مستقل لتطوير الألعاب والتطبيقات. نقدم تجارب ممتعة، مبتكرة، ومصممة بشغف.</p>
+        <a href="#portfolio"><button class="btn">استكشف أعمالنا</button></a>
+    </section>
 
-<div class="container">
-    <h2 class="section-title">مشاريعنا الرائدة</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>🎮 Micro Crush</h3>
-            <p>تجربة فريدة في عالم ألعاب الـ Match-3. تم تصميمها بأحدث المحركات لتقديم رسوميات جذابة وأسلوب لعب ممتع ومبتكر.</p>
-            <div class="links-container">
-                <a href="#" class="btn btn-outline">قريباً على المتجر</a>
+    <section id="portfolio" class="portfolio">
+        <h2 class="section-title">أحدث الإصدارات</h2>
+        
+        <div class="games-grid">
+            <div class="game-card">
+                <img src="https://placehold.co/400x400/2a2d40/ffffff?text=Micro+Crush+Icon" alt="Micro Crush" class="game-icon">
+                <h3>Micro Crush</h3>
+                <p>لعبة ألغاز ممتعة وتحديات يومية. طابق الألوان واربح النقاط في أروع تجربة بصرية.</p>
+                <a href="#" class="download-btn">حملها الآن</a>
             </div>
-        </div>
 
-        <div class="card">
-            <h3>📖 ظلال السماء</h3>
-            <p>تطبيق روائي مبتكر يدمج بين السرد القصصي والتفاعل الرقمي، نهدف من خلاله إلى إعادة تعريف تجربة القراءة عبر الهاتف.</p>
-            <div class="links-container">
-                <a href="#" class="btn btn-outline">تحت التطوير</a>
+            <div class="game-card">
+                <img src="https://placehold.co/400x400/2a2d40/ffffff?text=Micro+Fly+Icon" alt="Micro Fly" class="game-icon">
+                <h3>Micro Fly</h3>
+                <p>حلق بعيداً وتجاوز العقبات! اختبر ردة فعلك في هذه اللعبة السريعة والمليئة بالحماس.</p>
+                <a href="#" class="download-btn">حملها الآن</a>
             </div>
-        </div>
-
-        <div class="card">
-            <h3>🎥 صانع التقنية</h3>
-            <p>قناتنا التعليمية على يوتيوب. نشارككم فيها رحلتنا في البرمجة وتطوير الألعاب، ونقدم شروحات تقنية مبسطة للجميع.</p>
-            <div class="links-container">
-                <a href="https://www.youtube.com/@TechnologyMaker" class="btn btn-primary">اشترك الآن</a>
+            
             </div>
-        </div>
-    </div>
-</div>
+    </section>
 
-<footer>
-    <div class="dev-badge">
-        <h4>🚀 الموقع قيد التأسيس والبناء بأيادي مهندس البرمجيات القدير، والعالم العبقري: <strong>أحمد الثلاثيني</strong></h4>
-        <p>🌟 بمشاركة ضيف الشرف المميز: المهندس <strong>عمر سكيك</strong></p>
-    </div>
-    <div class="copyright">
-        <p>جميع الحقوق محفوظة &copy; 2026 | MicroUp Studios</p>
-    </div>
-</footer>
+    <section id="contact" class="contact">
+        <h2 class="section-title">تواصل معنا</h2>
+        <p>لديكم استفسار، اقتراح، أو تواجهون مشكلة في ألعابنا؟ نحن هنا للمساعدة.</p>
+        <p>راسلونا عبر البريد الإلكتروني المخصص للدعم الفني:</p>
+        <div class="support-email">support@microupstudios.com</div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 MicroUp Studios. جميع الحقوق محفوظة.</p>
+    </footer>
 
 </body>
 </html>
