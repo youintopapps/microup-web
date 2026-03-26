@@ -3,46 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MicroUp Studios | Unleash Creativity</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <title>ألعابنا × MicroUp Studios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --riot-red: #eb0028; /* لون رايوت الشهير */
-            --riot-black: #0f1011;
-            --riot-dark-gray: #1a1c1e;
-            --riot-white: #f9f9f9;
-            --riot-text-muted: #a0a0a0;
+            --sc-black: #000000;
+            --sc-gray-bg: #121212; /* رمادي غامق جداً بستايل الموبايل */
+            --sc-text: #ffffff;
+            --sc-muted: #878787;
+            --sc-accent: #ffbb00; /* أصفر كلاش أوف كلانس الشهير */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
 
-        body { background-color: var(--riot-black); color: var(--riot-white); overflow-x: hidden; }
+        body { background-color: var(--sc-black); color: var(--sc-text); overflow-x: hidden; }
 
-        /* --- Header: ستايل Riot الاحترافي --- */
+        /* --- Header: نظيف وبسيط --- */
         header {
             padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(15, 16, 17, 0.95);
-            border-bottom: 1px solid #333;
-            position: fixed;
-            width: 100%;
+            background: var(--sc-black);
+            position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
         }
 
-        .logo { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 1.5rem; letter-spacing: 2px; }
-        .logo span { color: var(--riot-red); }
+        .logo { font-size: 1.8rem; font-weight: 900; letter-spacing: -1px; }
+        .logo span { color: var(--sc-accent); }
 
-        nav a { color: var(--riot-white); text-decoration: none; font-weight: 700; margin-right: 30px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-        nav a:hover { color: var(--riot-red); }
+        nav a { color: var(--sc-text); text-decoration: none; font-weight: 700; margin-right: 25px; font-size: 0.9rem; }
 
-        /* --- Hero: سينمائي بامتياز --- */
+        /* --- Hero Section: ضخم ومباشر --- */
         .hero {
-            height: 100vh;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1), var(--riot-black)), 
-                        url('https://www.riotgames.com/darkroom/2000/16d55d98ac51853fe5b82c1a3020691e:9e18b0849b55f61e0eadde774282a267/static-frame.jpg');
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://supercell.com/_next/static/media/bg_hero_games.9dc94a72.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -50,140 +46,141 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 5%;
         }
 
-        .hero h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(3rem, 10vw, 7rem); font-weight: 900; line-height: 0.9; margin-bottom: 20px; }
-        .hero p { font-size: 1.5rem; color: var(--riot-white); font-weight: 700; margin-bottom: 40px; letter-spacing: 2px; }
+        .hero h1 { font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; text-transform: uppercase; line-height: 1; }
+        .hero p { font-size: 1.2rem; font-weight: 700; margin-top: 10px; color: var(--sc-accent); }
 
-        .btn-riot {
-            background-color: var(--riot-red);
-            color: white;
-            padding: 18px 50px;
-            text-decoration: none;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            position: relative;
-            transition: 0.3s;
-            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
-        }
-        .btn-riot:hover { background-color: #ff1a40; transform: scale(1.05); }
-
-        /* --- Products Section (The Grid) --- */
-        .section-container { padding: 100px 5%; max-width: 1600px; margin: 0 auto; }
-        .section-header { margin-bottom: 60px; border-right: 5px solid var(--riot-red); padding-right: 20px; }
-        .section-header h2 { font-size: 3rem; font-weight: 900; text-transform: uppercase; }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
-
-        .riot-card {
-            position: relative;
-            height: 500px;
-            overflow: hidden;
-            background-color: #111;
-            cursor: pointer;
-        }
-
-        .riot-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; filter: brightness(0.7); }
-        .riot-card:hover img { transform: scale(1.1); filter: brightness(0.9); }
-
-        .card-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 40px;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-        }
-
-        .card-category { color: var(--riot-red); font-weight: 900; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px; display: block; }
-        .card-title { font-size: 2rem; font-weight: 900; margin-bottom: 15px; }
+        /* --- Game Grid: بستايل سوبر سيل الحقيقي --- */
+        .games-container { padding: 80px 5%; max-width: 1400px; margin: 0 auto; }
         
-        .btn-learn { color: white; text-decoration: none; font-weight: 700; border-bottom: 2px solid var(--riot-red); padding-bottom: 5px; font-size: 0.9rem; transition: 0.3s; }
-        .btn-learn:hover { color: var(--riot-red); }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .game-card {
+            text-decoration: none;
+            color: var(--sc-text);
+            transition: transform 0.3s ease;
+        }
+
+        .game-card:hover { transform: scale(1.02); }
+
+        .thumbnail-wrapper {
+            width: 100%;
+            aspect-ratio: 1500 / 1130; /* نفس أبعاد سوبر سيل */
+            border-radius: 20px;
+            overflow: hidden;
+            background: #1a1a1a;
+            margin-bottom: 15px;
+        }
+
+        .thumbnail-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+        .game-title { font-size: 1.8rem; font-weight: 900; margin-bottom: 5px; }
+        .game-desc { color: var(--sc-muted); font-size: 1rem; font-weight: 400; }
+
+        /* --- قسم "انضم إلينا" --- */
+        .join-us {
+            background: #1a1a1a;
+            margin: 100px 5%;
+            padding: 60px;
+            border-radius: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .join-us h2 { font-size: 2.5rem; font-weight: 900; max-width: 500px; }
+        .btn-careers {
+            background: var(--sc-text);
+            color: var(--sc-black);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 900;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
 
         /* --- Footer --- */
-        footer {
-            background-color: var(--riot-black);
-            padding: 100px 5% 50px;
-            border-top: 1px solid #333;
-            text-align: center;
-        }
-
-        .footer-logo { font-size: 2rem; font-weight: 900; opacity: 0.5; margin-bottom: 40px; display: block; }
-        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; flex-wrap: wrap; }
-        .footer-links a { color: var(--riot-text-muted); text-decoration: none; font-weight: 700; font-size: 0.8rem; }
-        .footer-links a:hover { color: var(--riot-white); }
-        .copy { color: #444; font-size: 0.75rem; }
+        footer { padding: 60px 5%; border-top: 1px solid #333; display: flex; flex-direction: column; align-items: center; gap: 30px; }
+        .social-links a { color: var(--sc-muted); margin: 0 15px; font-weight: 700; text-decoration: none; }
+        .address { text-align: center; color: var(--sc-muted); font-size: 0.8rem; line-height: 2; }
 
         @media (max-width: 768px) {
-            .grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 4rem; }
+            .join-us { padding: 40px 20px; text-align: center; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">MICRO<span>UP</span></div>
+        <a href="#" class="logo">MICRO<span>UP</span></a>
         <nav>
-            <a href="#projects">المشاريع</a>
-            <a href="https://play.google.com/store/apps/dev?id=7874911765874404065" target="_blank">المتجر الرسمي</a>
-            <a href="mailto:support@microupstudios.com">الدعم الفني</a>
+            <a href="#games">ألعابنا</a>
+            <a href="https://play.google.com/store/apps/dev?id=7874911765874404065">المتجر</a>
+            <a href="mailto:support@microupstudios.com">الدعم</a>
         </nav>
     </header>
 
     <section class="hero">
-        <h1 dir="ltr">UNLEASH PLAY</h1>
-        <p>نحول الشغف إلى تجارب تفاعلية لا تُنسى</p>
-        <a href="#projects" class="btn-riot">استكشف أعمالنا</a>
+        <h1>ألعابنا</h1>
+        <p>اجمع، قاتل، حطم، وابنِ عالمك!</p>
     </section>
 
-    <main id="projects" class="section-container">
-        <div class="section-header">
-            <h2>إصداراتنا</h2>
-        </div>
-
+    <main id="games" class="games-container">
         <div class="grid">
-            <div class="riot-card">
-                <img src="https://images.unsplash.com/photo-1578632292335-df3abbb0d586?auto=format&fit=crop&q=80&w=1000" alt="AI Anime Wallpaper">
-                <div class="card-overlay">
-                    <span class="card-category">تطبيقات ذكية</span>
-                    <h3 class="card-title">AI Anime Wallpaper 4K</h3>
-                    <a href="https://play.google.com/store/apps/details?id=com.youintoapps.aianimewallpaper" target="_blank" class="btn-learn">فتح على المتجر</a>
+            
+            <a href="https://play.google.com/store/apps/details?id=com.youintoapps.aianimewallpaper" class="game-card">
+                <div class="thumbnail-wrapper">
+                    <img src="https://supercell.com/_next/static/media/games_thumbnail_moco.34f4528a.webp" alt="AI Anime Wallpaper">
                 </div>
-            </div>
+                <h3 class="game-title">AI Anime Wallpaper 4K</h3>
+                <p class="game-desc">انضم لثورة خلفيات الذكاء الاصطناعي</p>
+            </a>
 
-            <div class="riot-card">
-                <img src="https://images.unsplash.com/photo-1611996598533-461f74d4b66b?auto=format&fit=crop&q=80&w=1000" alt="Micro Crush">
-                <div class="card-overlay">
-                    <span class="card-category">ألعاب موبايل</span>
-                    <h3 class="card-title">Micro Crush</h3>
-                    <a href="#" class="btn-learn">قريباً للتحميل</a>
+            <a href="#" class="game-card">
+                <div class="thumbnail-wrapper">
+                    <img src="https://supercell.com/_next/static/media/games_thumbnail_brawlstars.74340b44.webp" alt="Micro Crush">
                 </div>
-            </div>
+                <h3 class="game-title">Micro Crush</h3>
+                <p class="game-desc">لعبة المطابقة والتحدي الأقوى</p>
+            </a>
 
-            <div class="riot-card">
-                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1000" alt="Micro Fly">
-                <div class="card-overlay">
-                    <span class="card-category">نسخة بيتا</span>
-                    <h3 class=" Riot-title card-title">Micro Fly</h3>
-                    <a href="mailto:support@microupstudios.com" class="btn-learn">طلب انضمام للمختبرين</a>
+            <a href="#" class="game-card">
+                <div class="thumbnail-wrapper">
+                    <img src="https://supercell.com/_next/static/media/games_thumbnail_squadbusters.b9789ea1.webp" alt="Micro Fly">
                 </div>
-            </div>
+                <h3 class="game-title">Micro Fly</h3>
+                <p class="game-desc">حلق، تجاوز، وسيطر على الأجواء</p>
+            </a>
+
         </div>
     </main>
 
+    <section class="join-us">
+        <h2>مهتم بالعمل معنا في MicroUp؟</h2>
+        <a href="mailto:support@microupstudios.com" class="btn-careers">تواصل معنا</a>
+    </section>
+
     <footer>
-        <div class="footer-logo">MICRO<span>UP</span> STUDIOS</div>
-        <div class="footer-links">
-            <a href="#">سياسة الخصوصية</a>
-            <a href="#">شروط الخدمة</a>
-            <a href="#">الصحافة</a>
-            <a href="#">الأمان</a>
+        <div class="social-links">
+            <a href="#">YouTube</a>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
         </div>
-        <p class="copy">© 2026 MicroUp Studios, Inc. جميع الحقوق محفوظة. <br> غزة، فلسطين</p>
+        <div class="address">
+            <p>MicroUp Studios Oy</p>
+            <p>غزة، فلسطين</p>
+            <p>© 2026 MicroUp Studios. جميع الحقوق محفوظة.</p>
+        </div>
+        <div class="logo" style="opacity: 0.3;">MICRO<span>UP</span></div>
     </footer>
 
 </body>
