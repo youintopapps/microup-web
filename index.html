@@ -15,8 +15,11 @@
             --epic-border: #333333;
         }
 
+        /* إضافة حركة النزول الناعمة (Smooth Scroll) */
+        html { scroll-behavior: smooth; }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', 'Inter', sans-serif; }
-        body { background-color: var(--epic-bg); color: var(--epic-white); line-height: 1.5; overflow-x: hidden; }
+        body { background-color: var(--epic-bg); color: var(--epic-white); line-height: 1.6; overflow-x: hidden; }
 
         /* --- Navigation Bar --- */
         header {
@@ -62,11 +65,12 @@
         }
         .btn-primary:hover { background-color: #0066d1; }
 
-        /* --- Projects Grid Section --- */
-        .store-section { padding: 80px 5%; max-width: 1400px; margin: 0 auto; }
+        /* --- Section Common --- */
+        .store-section { padding: 80px 5%; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid #1a1a1a; }
         .section-title { font-size: 2rem; font-weight: 900; margin-bottom: 40px; border-right: 4px solid var(--epic-blue); padding-right: 15px; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin-bottom: 60px; }
+        /* --- Projects Grid --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin-bottom: 20px; }
 
         .epic-card { background-color: var(--epic-card); border-radius: 12px; text-decoration: none; color: inherit; transition: 0.3s; overflow: hidden; border: 1px solid transparent; display: flex; flex-direction: column; }
         .epic-card:hover { transform: translateY(-5px); border-color: var(--epic-blue); box-shadow: 0 10px 20px rgba(0, 120, 242, 0.15); }
@@ -81,6 +85,14 @@
         .card-desc { font-size: 0.9rem; color: var(--epic-text-muted); margin-bottom: 20px; flex-grow: 1; }
         .card-btn { background-color: var(--epic-blue); color: white; text-align: center; padding: 10px; border-radius: 4px; font-size: 0.9rem; font-weight: 700; transition: 0.3s; }
         .epic-card:hover .card-btn { background-color: #0066d1; }
+
+        /* --- Text Content Sections (About & Privacy) --- */
+        .text-content { max-width: 900px; color: var(--epic-text-muted); font-size: 1.1rem; line-height: 1.8; }
+        .text-content h3 { color: var(--epic-white); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
+        .text-content ul { margin-right: 20px; margin-bottom: 20px; }
+        .text-content li { margin-bottom: 10px; }
+        .text-content a { color: var(--epic-blue); text-decoration: none; }
+        .text-content a:hover { text-decoration: underline; }
 
         /* --- Footer --- */
         footer { background-color: #18181c; padding: 80px 5% 40px; border-top: 1px solid var(--epic-border); }
@@ -103,8 +115,8 @@
         <div class="logo">MICRO<span>UP</span></div>
         <nav>
             <a href="#projects">إصداراتنا</a>
-            <a href="#store">المتجر</a>
-            <a href="about.html">عن الشركة</a>
+            <a href="#about">عن الشركة</a>
+            <a href="#privacy">سياسة الخصوصية</a>
         </nav>
         <a href="mailto:support@microupstudios.com" class="btn-cta-nav">تواصل معنا</a>
     </header>
@@ -117,7 +129,6 @@
 
     <main id="projects" class="store-section">
         <h2 class="section-title">إصداراتنا الأخيرة</h2>
-        
         <div class="grid">
             <a href="https://play.google.com/store/apps/details?id=com.microup.microcrush" target="_blank" class="epic-card">
                 <div class="image-container">
@@ -157,20 +168,34 @@
         </div>
     </main>
 
-    <section id="store" class="store-section" style="padding-top: 20px;">
-        <h2 class="section-title">المتجر الرسمي</h2>
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 350px));">
-            <div class="epic-card" style="opacity: 0.7;">
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&q=80&w=1000" alt="Merch">
-                </div>
-                <div class="card-content">
-                    <span class="card-tag">Clothing / Merch</span>
-                    <h3 class="card-title">منتجات MicroUp الحصرية</h3>
-                    <p class="card-desc">تيشيرتات وأكواب للمطورين واللاعبين.</p>
-                    <div class="card-btn" style="background-color: #444; color: #888;">قريباً (Coming Soon)</div>
-                </div>
-            </div>
+    <section id="about" class="store-section">
+        <h2 class="section-title">عن MicroUp Studios</h2>
+        <div class="text-content">
+            <p>
+                <strong>MicroUp Studios</strong> هو استوديو مستقل لتطوير الألعاب والتطبيقات الذكية، انطلق بشغف كبير من قلب <strong>غزة، فلسطين</strong>. 
+                تأسس الاستوديو على يد مهندس متخصص في الحوسبة المتنقلة وتطبيقات الأجهزة الذكية، برؤية تهدف إلى دمج الفن البرمجي مع أحدث التقنيات مثل محركات الألعاب والذكاء الاصطناعي.
+            </p>
+            <p style="margin-top: 15px;">
+                نحن لا نكتب أكواداً برمجية فقط، بل نصنع تجارب تفاعلية ممتعة (ألعاب الألغاز والآركيد) وتطبيقات مفيدة تضيف قيمة فنية وتقنية لمستخدمي الهواتف الذكية حول العالم.
+            </p>
+        </div>
+    </section>
+
+    <section id="privacy" class="store-section">
+        <h2 class="section-title">سياسات الخصوصية لألعابنا</h2>
+        <div class="text-content">
+            <p>
+                نحن في MicroUp Studios نأخذ خصوصية مستخدمينا على محمل الجد. كل تطبيق ولعبة نصدرها تمتلك سياسة خصوصية شفافة توضح كيفية تعاملنا مع البيانات (إن وُجدت) لضمان تجربة آمنة تماماً.
+            </p>
+            <h3>روابط الخصوصية المتوفرة:</h3>
+            <ul>
+                <li><a href="#">سياسة الخصوصية الخاصة بلعبة Micro Crush</a></li>
+                <li><a href="#">سياسة الخصوصية الخاصة بتطبيق AI Anime Wallpaper 4K</a></li>
+                <li><a href="#">سياسة الخصوصية الخاصة بتطبيق AI Wallpapers 4K</a></li>
+            </ul>
+            <p style="margin-top: 20px; font-size: 0.95rem;">
+                إذا كان لديك أي استفسار حول سياساتنا، لا تتردد في مراسلتنا عبر بريد الدعم الفني.
+            </p>
         </div>
     </section>
 
@@ -180,8 +205,8 @@
                 <h4>روابط سريعة</h4>
                 <ul>
                     <li><a href="https://play.google.com/store/apps/dev?id=8729086594223024187" target="_blank">صفحة المطور (Google Play)</a></li>
-                    <li><a href="about.html">عن الشركة</a></li>
-                    <li><a href="privacy.html">سياسة الخصوصية للألعاب</a></li>
+                    <li><a href="#about">عن الشركة</a></li>
+                    <li><a href="#privacy">سياسة الخصوصية</a></li>
                 </ul>
             </div>
             <div class="footer-col">
