@@ -15,15 +15,13 @@
             --epic-border: #333333;
         }
 
-        /* إضافة حركة النزول الناعمة (Smooth Scroll) */
         html { scroll-behavior: smooth; }
-        
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', 'Inter', sans-serif; }
         body { background-color: var(--epic-bg); color: var(--epic-white); line-height: 1.5; overflow-x: hidden; }
 
         /* --- Navigation Bar --- */
         header {
-            height: 70px;
+            height: 80px; /* كبرنا الهيدر شوي ليستوعب الشعار الأكبر */
             background-color: #18181c;
             display: flex; justify-content: space-between; align-items: center;
             padding: 0 5%; position: sticky; top: 0; z-index: 1000;
@@ -31,17 +29,23 @@
         }
 
         .logo { 
-            display: flex; align-items: center; gap: 10px;
-            font-weight: 900; font-size: 1.5rem; letter-spacing: 1px; color: var(--epic-white); text-transform: uppercase; 
+            display: flex; align-items: center; gap: 15px; /* مسافة أكبر بين الصورة والنص */
         }
-        .logo span { color: var(--epic-blue); }
-        /* تنسيق شعار الشركة الدائري */
         .logo img { 
-            width: 40px; height: 40px; 
+            width: 60px; height: 60px; /* تكبير حجم الشعار */
             border-radius: 50%; 
             object-fit: cover; 
             border: 2px solid var(--epic-blue); 
         }
+        /* كلاس خاص للنص الإنجليزي عشان ما ينعكس */
+        .brand-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900; font-size: 1.8rem; /* تكبير خط الكلمة */
+            letter-spacing: 1px; color: var(--epic-white); text-transform: uppercase;
+            direction: ltr; /* إجبار النص على القراءة من اليسار لليمين */
+            display: inline-block;
+        }
+        .brand-text span { color: var(--epic-blue); }
 
         nav { display: flex; gap: 25px; }
         nav a { color: var(--epic-text-muted); text-decoration: none; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; transition: 0.2s; }
@@ -57,7 +61,6 @@
         /* --- Hero Section --- */
         .hero {
             height: 75vh;
-            /* تحديث الخلفية الكبيرة الجديدة */
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), 
                         url('https://play-lh.googleusercontent.com/zrGrb8s1_wdJ7d8wVjgnRoJDSyCtyfLoJ_zWclgxuTbCSytzFqKyX2DFJTRjmV22ZgI=w7680-h4320-rw');
             background-size: cover; background-position: center;
@@ -97,11 +100,8 @@
         .card-btn { background-color: var(--epic-blue); color: white; text-align: center; padding: 10px; border-radius: 4px; font-size: 0.9rem; font-weight: 700; transition: 0.3s; }
         .epic-card:hover .card-btn { background-color: #0066d1; }
 
-        /* --- Text Content Sections (About & Privacy) --- */
+        /* --- Text Content Sections --- */
         .text-content { max-width: 900px; color: var(--epic-text-muted); font-size: 1.1rem; line-height: 1.8; }
-        .text-content h3 { color: var(--epic-white); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        .text-content ul { margin-right: 20px; margin-bottom: 20px; }
-        .text-content li { margin-bottom: 10px; }
         .text-content a { color: var(--epic-blue); text-decoration: none; }
         .text-content a:hover { text-decoration: underline; }
 
@@ -117,9 +117,11 @@
         .footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--epic-border); padding-top: 30px; flex-wrap: wrap; gap: 20px; }
         .copy { color: var(--epic-text-muted); font-size: 0.75rem; max-width: 600px; }
         
-        /* تنسيق اللوجو النصي الشفاف في الـ Footer */
-        .footer-logo { font-weight: 900; font-size: 1.5rem; letter-spacing: 1px; color: var(--epic-white); text-transform: uppercase; opacity: 0.3; }
-        .footer-logo span { color: var(--epic-blue); }
+        /* تنسيق اللوجو في الفوتر */
+        .footer-logo { display: flex; align-items: center; gap: 10px; opacity: 0.4; transition: 0.3s; }
+        .footer-logo:hover { opacity: 0.8; }
+        .footer-logo img { width: 40px; height: 40px; border-radius: 50%; filter: grayscale(100%); }
+        .footer-logo .brand-text { font-size: 1.3rem; }
 
         @media (max-width: 768px) { nav { display: none; } .hero h1 { font-size: 3rem; } }
     </style>
@@ -129,7 +131,7 @@
     <header>
         <div class="logo">
             <img src="https://play-lh.googleusercontent.com/kW-7FC0_z4OBkAe26siunaYc_AlVzlqhl1V5L0tINcC7XceWYgYGrb3YCebLxeKDkJ73=s188-rw" alt="MicroUp Studios Logo">
-            MICRO<span>UP</span>
+            <div class="brand-text">MICRO<span>UP</span></div>
         </div>
         <nav>
             <a href="#projects">إصداراتنا</a>
@@ -238,7 +240,10 @@
                 © 2026 MicroUp Studios, Inc. جميع الحقوق محفوظة. <br>
                 صُنع في غزة، فلسطين.
             </p>
-            <div class="footer-logo">MICRO<span>UP</span></div>
+            <div class="footer-logo">
+                <img src="https://play-lh.googleusercontent.com/kW-7FC0_z4OBkAe26siunaYc_AlVzlqhl1V5L0tINcC7XceWYgYGrb3YCebLxeKDkJ73=s188-rw" alt="MicroUp Logo Muted">
+                <div class="brand-text">MICRO<span>UP</span></div>
+            </div>
         </div>
     </footer>
 
